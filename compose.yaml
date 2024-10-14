@@ -1,0 +1,14 @@
+services:
+  application:
+    build: .
+    image: application
+    container_name: application
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: cdi
+              device_ids:
+                - nvidia.com/gpu=all
+    volumes:
+      - .:/workspace
